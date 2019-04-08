@@ -1,9 +1,9 @@
 let baseNum: any = 123;
 
-function doubling(firstNumber: number, secondNumber: number): number {
-    return firstNumber * secondNumber;
+function doubling(firstNumber: number): number {
+    return firstNumber * 2;
 
 }
-baseNum = doubling(7,12)
+baseNum = doubling(baseNum)
 console.log(baseNum);
 
