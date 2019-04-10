@@ -1,21 +1,20 @@
 'use strict';
 
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
-canvas.height = 600;
-canvas.width = 600;
-
-
 const ctx = canvas.getContext('2d');
 
+// draw a red horizontal line to the canvas' middle.
+// draw a green vertical line to the canvas' middle.
+
 ctx.beginPath();
-ctx.moveTo(300, 400);
-ctx.lineTo(300, 300);
+ctx.moveTo(0, canvas.height / 2);
+ctx.lineTo(canvas.width, canvas.height / 2);
 ctx.strokeStyle = 'green'
 ctx.stroke();
 
 ctx.beginPath();
-ctx.moveTo(150, 200);
-ctx.lineTo(300, 400);
+ctx.moveTo(canvas.width / 2, 0);
+ctx.lineTo(canvas.width / 2, canvas.height);
 ctx.strokeStyle = 'red'
 ctx.stroke();
 
