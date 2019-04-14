@@ -4,16 +4,15 @@
 //we'll say have 3 ears, because they each have a raised foot. 
 //Recursively return the number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
 
-function bunnies(ears :number) :number{
-    if (ears < 1){
-      return 0;
-    }
-    if (ears % 2 === 0) {
-        return 3 + bunnies(ears - 1);
-    }
-    else {
-        return 2 + bunnies(ears -1);
-    }
-      
-  } console.log(bunnies(6));
-  
+function bunnies(ears: number): number {
+  if (ears < 1) {
+    return 0;
+  }
+  if (ears % 2 === 0) {
+    return 3 + bunnies(ears - 1);
+  }
+  else {
+    return 2 + bunnies(ears - 1);
+  }
+
+} console.log(bunnies(6));

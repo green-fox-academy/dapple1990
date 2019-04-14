@@ -3,18 +3,16 @@
 const canvas = document.querySelector('.main-canvas') as HTMLCanvasElement;
 const ctx = canvas.getContext('2d');
 
-function drawASquare (x : number, y : number) {
+function mySquare(size: number) {
+
     ctx.beginPath();
-    ctx.moveTo(0 ,0);
-    ctx.rect(200, 150, x, y);
+    ctx.strokeStyle = "red";
+    ctx.strokeRect(canvas.width / 2, canvas.height / 2, size, size);
     ctx.stroke();
-} drawASquare(30, 30);
-
-for( let i : number = 0; i <= 3; i++) {
-    drawASquare(i * 30, i * 30);
-
 }
-
+for (let i : number = 0; i <= 3; i++) {
+    mySquare(12 * i);
+}
 
 // Create a square drawing function that takes 1 parameter:
 // The square size
