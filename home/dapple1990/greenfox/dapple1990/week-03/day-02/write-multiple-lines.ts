@@ -11,9 +11,14 @@
 
 const fs = require('fs');
 
-function parameters(location: string, lines: string, howManyLines: number) {
-    fs.writeFileSync('my-text.txt', path)
-    if (lines === 'apple' && howManyLines === 5) {
+function parameters(path: string, word: string, number: number) {
 
+    let myString : string = '';
+
+    for(let i : number = 0; i < number; i++ ) {
+        myString += word + '\n';
     }
-}
+    fs.writeFileSync(path, myString);
+} 
+
+parameters('multiple-lines.txt', 'Laci', 10);
