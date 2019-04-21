@@ -6,16 +6,18 @@
 'use strict';
 
 const fs = require('fs');
-let read : string = '';
 
 function readMyFile(path) {
-    return fs.readFileSync(path, 'UTF-8');
+    try {
+        let read : string[] = fs.readFileSync(path, 'UTF-8').toString().split('\n');
+        read.forEach(element => {
+            console.log(element);
+        })
+    } catch (e) {
+        console.log('Unable to read file : ' + path);
+    }
 }
+ 
 
-try {
-read = readMyFile('my-file.txt')
-} catch (e) {
-    console.log(e.message);
-}
 
-console.log(read);
+readMyFile('my.file.txt');
