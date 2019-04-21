@@ -7,11 +7,11 @@
 
 const fs = require('fs');
 
-function myFile(file: number) {
+function myFile(file: string) {
     try {
-        let myFile = fs.readFileSync('my-file.txt', 'UTF-8');
+        let myFile = fs.readFileSync(file, 'UTF-8');
         return myFile.length;
     } catch (e) {
         return 0;
     }
-} console.log(myFile(5));
+} console.log(myFile('my.file.txt'));

@@ -11,14 +11,16 @@
 
 const fs = require('fs');
 
-function parameters(path: string, word: string, number: number) {
-
-    let myString : string = '';
-
-    for(let i : number = 0; i < number; i++ ) {
-        myString += word + '\n';
+function writeAFile(path: string, word: string, number: number) {
+    try {
+        let myString: string = '';
+        for (let i: number = 0; i < number; i++) {
+            myString += word + '\n';
+        }
+        fs.writeFileSync(path, myString);
     }
-    fs.writeFileSync(path, myString);
-} 
+    catch (e) {
+    }
+}
 
-parameters('multiple-lines.txt', 'Laci', 10);
+writeAFile('file.txt', 'Luna', 5);
