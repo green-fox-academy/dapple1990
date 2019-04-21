@@ -6,9 +6,17 @@
 
 'use strict';
 
-function divide(a: number) {
-    if( a === 0) {
-        return'fail';
-    } return 10 / a;
+
+function divideByTen(x: number) : number {
+    try {
+        if (x === 0) {
+            throw 'fail';
+        }
+        return 10 / x;
+    }
+    catch (exception) {
+        console.log(exception);
+    }
 }
-console.log(divide((5)));
+
+console.log(divideByTen(0));
