@@ -14,7 +14,7 @@ let john = new Student('John Doe', 20, 'male', 'BME');
 people.push(john);
 let student = new Student();
 people.push(student);
-let gandhi = new Mentor('Gandhi', 148, 'male', 'senior');
+let gandhi = new Mentor('intermediate', 'Gandhu', 324354);
 people.push(gandhi);
 let mentor = new Mentor();
 people.push(mentor);

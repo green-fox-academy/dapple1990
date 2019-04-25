@@ -13,6 +13,12 @@ class PostIt {
     backgroundColor : string;
     text: string;
     textColor: string;
+
+    /*constructor(backgroundColor : string, text: string, textColor: string) {
+        this.backgroundColor = backgroundColor;
+        this.text = text;
+        this.textColor = textColor; 
+}*/
 }
 
 let postIt = new PostIt();

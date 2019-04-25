@@ -11,12 +11,12 @@ export class Person {
         this.gender = gender;
     }
 
-        introduce() {
-            console.log(`Hi, I'm ${this.name}, a ${this.age} year old ${this.gender} `)
+    introduce() {
+        console.log(`Hi, I'm ${this.name}, a ${this.age} year old ${this.gender} `)
 
-        }
-
-        getGoal() {
-            console.log('My goal is : Live for the momment!');
-        }
     }
+
+    getGoal() {
+        console.log('My goal is : Live for the momment!');
+    }
+}

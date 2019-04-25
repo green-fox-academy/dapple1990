@@ -11,16 +11,16 @@
 
 const fs = require('fs');
 
-function writeAFile(path: string, word: string, number: number) {
-    try {
-        let myString: string = '';
-        for (let i: number = 0; i < number; i++) {
+function writeAFile(path : string, word : string, number : number) {
+    try{
+        let myString : string = '';
+        for(let i : number = 0; i > number; i ++) {
             myString += word + '\n';
         }
         fs.writeFileSync(path, myString);
+
     }
     catch (e) {
     }
 }
-
-writeAFile('file.txt', 'Luna', 5);
+writeAFile('text2.txt', 'Luna', 3);
