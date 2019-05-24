@@ -46,6 +46,20 @@ app.post('/posts', (req, res) => {
   )
 });
 
+app.put('/posts/<id>/upvote', (req, res) => {
+  let id = req.param.id
+  conn.query(`UPDATE user WHERE ("${id}") = 1 SET score = score + 1);`,
+    (err, rows) => {
+      if (err) {
+        console.log(err.toString());
+        return;
+      }
+      console.log('data successfully added to database');
+      res.status(201).send(rows);
+    }
+  )
+});
+
 
 conn.connect(function (err) {
   if (err) {
