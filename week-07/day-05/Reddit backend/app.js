@@ -46,9 +46,9 @@ app.post('/posts', (req, res) => {
   )
 });
 
-app.put('/posts/<id>/upvote', (req, res) => {
-  let id = req.param.id
-  conn.query(`UPDATE user WHERE ("${id}") = 1 SET score = score + 1);`,
+app.put('/posts/:id/upvote', (req, res) => {
+  let id = req.query.id
+  conn.param(`UPDATE user WHERE ("${id}") = 1 SET score = score + 1);`,
     (err, rows) => {
       if (err) {
         console.log(err.toString());
