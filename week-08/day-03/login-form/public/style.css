@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Nanum Gothic', sans-serif;
+  font-weight: 50%;
+  background-color: lightgrey;
+}
+
+.main-title {
+  font-size: 2rem;
+}
+
+.main-container {
+  display: flex;
+  padding: 20px;
+  margin: 20px;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+}
+
+input[type= "text"]:focus {
+  outline-color: lightgreen;
+}
+
+.login-button {
+  border-radius: 20px;
+  color: #fff;
+  background-color: #000;
+  width: 80px;
+  margin-top: 40px;
+}
+
+.forgot-password {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+}
