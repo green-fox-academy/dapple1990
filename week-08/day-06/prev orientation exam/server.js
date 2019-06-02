@@ -56,6 +56,22 @@ app.get('/api/links', (req, res) => {
   })
 });
 
+app.delete('/api/links/:id', (req, res) => {
+  let id = req.params.id;
+  let secretCode = req.body.secretCode
+  conn.query('SELECT secretCode FROM alias WHERE id = ?', [id], (err, rows) => {
+    if (rows.length === 0) {
+      res.sendStatus(404)
+    } else if (secretCode !== rows[0].secretCode) {
+      res.sendStatus(403)
+    } else {
+      conn.query('DELETE FROM alias WHERE id = ?' , [id], (err, deleteCode) => {
+        res.sendStatus(204)
+      })
+    }
+  })
+});
+
 conn.connect(function (err) {
   if (err) {
     console.log('Error connecting to Db');
