@@ -1,0 +1,15 @@
+label {
+  display: block;
+}
+
+.button {
+  border-radius: 8px;
+}
+
+.error-message {
+  color: lightcoral;
+}
+
+.incoming-value {
+  font-weight: bold;
+}
