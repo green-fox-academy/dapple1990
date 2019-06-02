@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
+body {
+  background-color : rgb(36, 113, 163);
+}
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+}
+table {
+  border-collapse: separate;
+  border-radius: 15px;
+  border-spacing: 0;
+  width: 70%;
+}
+
+td.header {
+  background: black;
+  color: white;
+  padding: 15px;
+}
+
+.month::after {
+  text-align: left;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #cecfd5;
+}
+tbody tr:nth-child(odd) {
+  background-color: #7F8C8D  ;
+}
+
+
+td {
+  border: 0.5px solid #BFC9CA;
+  padding: 10px 15px;
+}
+
+td.header {
+  border-radius: 4px 0 0 0;
+}
+
+.data-cuurency::before {
+  content: ' $';
+}
+
+.header-sales {
+  border-radius: 0 4px 0 0;
+  background: black;
+  color: white;
+  padding: 15px;
+
+}
+
+tbody td:last-child {
+  border-radius: 0 0 4px 0;
+}
+
+
