@@ -22,3 +22,20 @@ function succesMessage(alias, secretCode) {
   succes.innerHTML = `Your URL is aliased to <span class='bold'>${alias} </span> and your secret code is <span class = 'bold'>${secretCode}</span>`;
   succesParagraph.appendChild(succes);
 }
+
+function submit() {
+  let newRequest = new XMLHttpRequest();
+  newRequest.open('POST', '/api/links', true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  const getData = {
+    url : document.querySelector('#url'),
+    alias : document.querySelector('#alias')
+  }
+}
+
+const submitButton = document.querySelector('#submit');
+
+submitButton.onclick = (event) => {
+  event.preventDefault();
+  submit();
+}
