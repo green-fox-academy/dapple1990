@@ -28,22 +28,25 @@ function submit() {
   newRequest.open('POST', '/api/links', true);
   request.setRequestHeader('Content-Type', 'application/json');
   const getData = {
-    url : document.querySelector('#url'),
-    alias : document.querySelector('#alias')
+    url: document.querySelector('#url'),
+    alias: document.querySelector('#alias')
   }
-}
 
-const submitButton = document.querySelector('#submit');
+  const submitButton = document.querySelector('#submit');
 
-submitButton.onclick = (event) => {
-  event.preventDefault();
-  submit();
-}
+  submitButton.onclick = (event) => {
+    event.preventDefault();
+    submit();
+  }
 
- newRequest.onload = (data) => {
-  if(data.target.status === 200) {
-    const result = JSON.parse(data.target.status);
-    succesMessage(result[0].alias, result[0].secretCode);
-  } 
+  newRequest.onload = (data) => {
+    if (data.target.status === 200) {
+      const result = JSON.parse(data.target.status);
+      succesMessage(result[0].alias, result[0].secretCode);
+    } else if (data.target.status === 400) {
+      errorMeassage();
+    }
+  }
+  newRequest.send(JSON.stringify(getData));
 }
 
