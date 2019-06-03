@@ -1,17 +1,49 @@
-const form = document.querySelector('.my-form');
+'use strict';
 
-function resetInput() {
-  form.reset();
+const form = document.querySelector('.my-form')
+
+function clearInput() {
+  form.reset()
 }
 
-
-function errorMessage() {
-  let message = document.querySelector('.message')
-  message.innerHTML = '<span class="error-message">Your alias is already in use!</span>';
+function errorMeassage() {
+  let newParagraph = document.querySelector('.message');
+  newParagraph.innerHTML = '';
+  let error = document.createElement('p')
+  error.innerText = 'Your alias is already in use!';
+  error.className = 'error';
+  newParagraph.appendChild(error);
 }
 
-function succesMessage(alias, code) {
-  let succes = document.querySelector('.message')
-  succes.innerHTML = `Your URL is aliased to <span class="incoming-value">${alias}</span> 
-  and your secret code is <span class="incoming-value"> ${code}</span>.`
-} 
+function succesMessage(alias, secretCode) {
+  let succesParagraph = document.querySelector('.message');
+  succesParagraph.innerHTML = '';
+  let succes = document.createElement('p');
+  succes.innerHTML = `Your URL is aliased to <span class='bold'>${alias} </span> and your secret code is <span class = 'bold'>${secretCode}</span>`;
+  succesParagraph.appendChild(succes);
+}
+
+function submit() {
+  let newRequest = new XMLHttpRequest();
+  newRequest.open('POST', '/api/links', true);
+  request.setRequestHeader('Content-Type', 'application/json');
+  const getData = {
+    url : document.querySelector('#url'),
+    alias : document.querySelector('#alias')
+  }
+}
+
+const submitButton = document.querySelector('#submit');
+
+submitButton.onclick = (event) => {
+  event.preventDefault();
+  submit();
+}
+
+ newRequest.onload = (data) => {
+  if(data.target.status === 200) {
+    const result = JSON.parse(data.target.status);
+    succesMessage(result[0].alias, result[0].secretCode);
+  } 
+}
+
