@@ -22,13 +22,14 @@ app.get('/', (req, res) => {
 app.post('/api/links', (req, res) => {
   let alias = req.body.alias
   conn.query('SELECT alias FROM alias WHERE alias = ?', [alias], (err, rows) => {
+    console.log(rows);
     if (rows.length > 0) {
       res.sendStatus(400);
     } else {
       let secretCode = Math.floor(Math.random() * 9999);
       let url = req.body.url;
-      conn.query('INSERT INTO alias (alias, url , secretCode) VALUES (? , ? , ?)', [alias, url, secretCode], (err, status) => {
-        conn.query('SELECT * FROM alias WHERE id = ?', [status.insertId], (err, rows) => {
+      conn.query('INSERT INTO alias (alias, url , secretCode) VALUES (? , ? , ?)', [alias, url, secretCode], (err, result) => {
+        conn.query('SELECT * FROM alias WHERE id = ?;', [result.insertId], (err, rows) => {
           res.send(rows);
         })
       })
@@ -50,7 +51,6 @@ app.get('/a/:alias', (req, res) => {
 });
 
 app.get('/api/links', (req, res) => {
-  let alias3 = req.params.alias;
   conn.query('SELECT url, alias, hitCount FROM alias', (err, rows) => {
     res.send(rows);
   })
@@ -59,13 +59,21 @@ app.get('/api/links', (req, res) => {
 app.delete('/api/links/:id', (req, res) => {
   let id = req.params.id;
   let secretCode = req.body.secretCode
-  conn.query('SELECT secretCode FROM alias WHERE id = ?', [id], (err, rows) => {
+  conn.query('SELECT * FROM alias WHERE id = ?', [id], (err, rows) => {
+    if (err) {
+      console.log(err);
+      res.sendStatus(500);
+    }
     if (rows.length === 0) {
       res.sendStatus(404)
     } else if (secretCode !== rows[0].secretCode) {
       res.sendStatus(403)
     } else {
-      conn.query('DELETE FROM alias WHERE id = ?' , [id], (err, deleteCode) => {
+      conn.query('DELETE FROM alias WHERE id = ?', [id], (err, deleteCode) => {
+        if (err) {
+          console.log(err);
+          res.sendStatus(500);
+        }
         res.sendStatus(204)
       })
     }
