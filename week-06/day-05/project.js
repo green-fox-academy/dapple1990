@@ -1,6 +1,6 @@
 'use strict';
 
-const pictrures = [
+const pictures = [
   {
     src: 'https://www.balisafarimarinepark.com/wp-content/uploads/2018/05/siberian-tiger-bali-safari-park.jpg',
     title: '',
@@ -25,9 +25,9 @@ const pictrures = [
 
 function generateThumbnails() {
   let loadPictures = document.getElementsByClassName('thumbnails')
-  for (let i = 0; i < pictrures.length; i++) {
+  for (let i = 0; i < pictures.length; i++) {
     let newImg = document.createElement('img');
-    newImg.setAttribute('src', pictrures[i].src);
+    newImg.setAttribute('src', pictures[i].src);
     loadPictures[0].appendChild(newImg);
   }
 }
@@ -35,14 +35,15 @@ generateThumbnails();
 
 function setPicture(index) {
   let foundPicture = document.getElementById('biggest-picture')
-  foundPicture.setAttribute('src', pictrures[index].src);
+  foundPicture.setAttribute('src', pictures[index].src);
 }
 setPicture(0);
+
 
 let currentPicture = 0;
 
 function next() {
-  if (currentPicture < pictrures.length) {
+  if (currentPicture < pictures.length) {
     currentPicture++;
     setPicture(currentPicture);
   } else {
@@ -57,7 +58,7 @@ function prev() {
     setPicture(currentPicture);
   }
   else {
-    currentPicture = pictrures.length - 1;
+    currentPicture = pictures.length - 1;
     setPicture(currentPicture);
   }
 }
