@@ -13,24 +13,26 @@
   <div class="main-container">
     <form action="/send" method="POST">
       <h1>Favourite pet</h1>
-      <input type="radio" id="dog" name="animal" value="dog">Dog</input>
-      <input type="radio" id="cat" name="animal" value="cat">Cat</input>
-      <input type="radio" id="Viktor" name="animal" value="Viktor">Viktor the goldfish</input>
+      <input type="radio" id="dog" name="animal" value="dog"></input>
+      <label for="dog">Dog</label>
+      <input type="radio" id="cat" name="animal" value="cat"></input>
+      <label for="cat">Cat</label>
+      <input type="radio" id="Viktor" name="animal" value="Viktor"></input>
+      <label for="Viktor">Viktor the goldfish</label>
       <div class="signup">
         <h1>Do you want to sign up for cat facts?</h1>
         <label for="yes">yes</label>
-        <input type="radio" id="yes" name="sign up" value="yes">
+        <input type="radio" id="yes" name="sign up" value="yes" checked>
         <label for="no">no</label>
         <input type="radio" id="no" name="sign up" value="no">
       </div>
       <div class="buttons">
-        <button class="button-love" disabled>I love cats</button>
-        <button class="button-signup" disabled>Sign up</a>
+        <button class="button-love" type="button" disabled>I love cats</button>
+        <button class="button-signup" type="button" disabled>Sign up</a>
       </div>
 
     </form>
     <script src="./app.js"></script>
   </div>
 </body>
-
 </html>

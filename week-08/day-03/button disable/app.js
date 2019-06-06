@@ -1,31 +1,41 @@
-let selectedItems = document.querySelector('form');
-let yesRadio = document.querySelector('#yes');
-let noRadio = document.querySelector('#no');
-let buttonSignUp = document.querySelector('.button-signup');
-let catsLover = document.querySelector('.button-love');
-let loveCat = document.querySelector('#cat');
-let dogPerson = document.querySelector('#dog');
-let theFish = document.querySelector('#Viktor');
+const selectedItems = document.querySelector('form');
+const yesRadio = document.querySelector('#yes');
+const noRadio = document.querySelector('#no');
+const buttonSignUp = document.querySelector('.button-signup');
+const catsLover = document.querySelector('.button-love');
+const loveCat = document.querySelector('#cat');
+const dogPerson = document.querySelector('#dog');
+const theFish = document.querySelector('#Viktor');
 
 selectedItems.addEventListener('click', () => {
   if (loveCat.checked || dogPerson.checked) {
     buttonSignUp.disabled = false
+  } else if (theFish.checked && noRadio.checked) {
+    buttonSignUp.disabled = false;
+  } else {
+    buttonSignUp.disabled = true;
   }
   if (yesRadio.checked) {
     catsLover.disabled = false;
-  }
-  if(noRadio.checked) {
+  } else {
     catsLover.disabled = true;
   }
-  if(theFish.checked && noRadio.checked) {
-    buttonSignUp.disabled = false;  
-    window.alert(`Sigh, we still added you to the cat facts list`)
-  }
-
 });
+
+function sayThankYou() {
+  window.alert(`Thank you, you've successfully signed up for cat fact`);
+}
 
 catsLover.addEventListener('click', () => {
   if (yesRadio.checked) {
-    window.alert(`Thank you, you've successfully signed up for cat fact`)
+    sayThankYou();
+  }
+});
+
+buttonSignUp.addEventListener('click', () => {
+  if (theFish.checked && noRadio.checked) {
+    window.alert(`Sigh, we still added you to the cat facts list`)
+  } else {
+    sayThankYou();
   }
 });
