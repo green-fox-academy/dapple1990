@@ -1,0 +1,32 @@
+body {
+  background-color : grey;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  position: relative;
+}
+
+.big-picture {
+  justify-content: center;
+  align-content: center;
+}
+
+.container img {
+  box-shadow: 0 0 0 4px #fff;
+ 
+}
+
+.container img:hover {
+  transform: scale(1);
+}
+
+.right-button:hover{
+  transform: scale(2);
+}
+
