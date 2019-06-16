@@ -38,7 +38,7 @@ app.get('/posts', (req, res) => {
   })
 });
 
-/* app.post('/posts', (req, res) => {
+app.post('/posts', (req, res) => {
   const post2 = req.body.title
   const post3 = req.body.url
   conn.query(`
@@ -55,7 +55,7 @@ app.get('/posts', (req, res) => {
 });
 
 app.put('/posts/:id/upvote', (req, res) => {
-  //let id = req.params.id
+  let id = req.params.id
   conn.query(`UPDATE user WHERE (${req.params.id}) = 1" SET score = score + 1);`,
     (err, rows) => {
       if (err) {
@@ -67,7 +67,7 @@ app.put('/posts/:id/upvote', (req, res) => {
     }
   )
 });
-*/
+
 
 
 app.listen(PORT, () => {
