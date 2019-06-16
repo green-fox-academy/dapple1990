@@ -11,7 +11,15 @@ let conn = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: 'password',
-  database: 'reddit'
+  database: 'reddit2'
+});
+
+conn.connect(function (err) {
+  if (err) {
+    console.log('Error connecting to Db');
+    return;
+  }
+  console.log('connection established');
 });
 
 app.get('/', (req, res) => {
@@ -30,7 +38,7 @@ app.get('/posts', (req, res) => {
   })
 });
 
-app.post('/posts', (req, res) => {
+/* app.post('/posts', (req, res) => {
   const post2 = req.body.title
   const post3 = req.body.url
   conn.query(`
@@ -47,8 +55,8 @@ app.post('/posts', (req, res) => {
 });
 
 app.put('/posts/:id/upvote', (req, res) => {
-  let id = req.query.id
-  conn.query(`UPDATE user WHERE ("${id}") = 1 SET score = score + 1);`,
+  //let id = req.params.id
+  conn.query(`UPDATE user WHERE (${req.params.id}) = 1" SET score = score + 1);`,
     (err, rows) => {
       if (err) {
         console.log(err.toString());
@@ -59,16 +67,9 @@ app.put('/posts/:id/upvote', (req, res) => {
     }
   )
 });
+*/
 
-
-conn.connect(function (err) {
-  if (err) {
-    console.log('Error connecting to Db');
-    return;
-  }
-  console.log('connection established');
-});
 
 app.listen(PORT, () => {
   console.log(`The server is up and running on ${PORT}`);
-});
+}); 
